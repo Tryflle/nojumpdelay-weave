@@ -1,5 +1,4 @@
-# Weave Kotlin
-Weave example mod made with [Kotlin](https://kotlinlang.org)
-
-## Build
-> Gradle: `Tasks > build > build`
+# NoJumpDelay
+Removes the delay between jumps (easiest mod ever istg)
+## Usage
+Toggle: `/njd`

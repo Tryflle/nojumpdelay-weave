@@ -1,4 +1,4 @@
-rootProject.name = "ExampleMod"
+rootProject.name = "NoJumpDelay-Weave"
 
 pluginManagement {
     repositories {

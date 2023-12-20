@@ -1,7 +1,0 @@
-{
-  "compatibilityLevel": "JAVA_8",
-  "package": "com.example.mixins",
-  "mixins": [
-    "MixinMinecraft"
-  ]
-}
