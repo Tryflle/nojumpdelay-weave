@@ -1,4 +1,4 @@
 # NoJumpDelay
-Removes the delay between jumps (easiest mod ever istg)
+Removes the delay between jumps.
 ## Usage
 Toggle: `/njd`

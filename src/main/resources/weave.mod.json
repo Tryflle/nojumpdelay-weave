@@ -1,5 +1,10 @@
 {
   "entrypoints": [
     "me.tryfle.njd.Main"
+  ],
+  "hooks": [
+    "me.tryfle.njd.hook.EntityLivingBaseHook",
+    "me.tryfle.njd.hook.InitEventHook",
+    "me.tryfle.njd.hook.ChatEventHook"
   ]
 }

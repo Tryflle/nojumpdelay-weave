@@ -1,18 +1,26 @@
 package me.tryfle.njd
 
-import me.tryfle.njd.commands.ToggleCommand
-import me.tryfle.njd.function.NoJumpDelay
-import net.weavemc.loader.api.ModInitializer
-import net.weavemc.loader.api.command.CommandBus
-import net.weavemc.loader.api.event.EventBus
-import net.weavemc.loader.api.event.StartGameEvent
+import me.tryfle.njd.event.InitEvent
+import me.tryfle.njd.function.ChatListener
+import net.weavemc.api.ModInitializer
+import net.weavemc.api.event.EventBus
+import java.lang.instrument.Instrumentation
 
 class Main: ModInitializer {
-    override fun preInit() {
+
+    override fun preInit(inst: Instrumentation) {
         println("[NJD] Initialized.")
-        CommandBus.register(ToggleCommand())
-        EventBus.subscribe(StartGameEvent.Post::class.java) {
-            EventBus.subscribe(NoJumpDelay())
+        EventBus.subscribe(InitEvent::class.java) {
+            println("[NJD] Init event called.")
+            init()
         }
+    }
+
+    private fun init() {
+        EventBus.subscribe(ChatListener())
+    }
+
+    companion object {
+        var njdToggled = false
     }
 }
