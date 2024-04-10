@@ -9,9 +9,8 @@ import java.lang.instrument.Instrumentation
 class Main: ModInitializer {
 
     override fun preInit(inst: Instrumentation) {
-        println("[NJD] Initialized.")
         EventBus.subscribe(InitEvent::class.java) {
-            println("[NJD] Init event called.")
+            println("[NJD] Initialized.")
             init()
         }
     }

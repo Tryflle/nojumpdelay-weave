@@ -11,11 +11,14 @@ class EntityLivingBaseHook : Hook("net/minecraft/entity/EntityLivingBase") {
 
     override fun transform(node: ClassNode, cfg: AssemblerConfig) {
         node.methods.find { it.name == "onLivingUpdate" }?.instructions?.insert(asm {
-            val enabled = LabelNode()
+            val end = LabelNode()
             getstatic(internalNameOf<Main>(), "njdToggled", "Z")
-            ifeq(enabled)
+            ifeq(end)
 
+            iconst_0
             putfield(internalNameOf<EntityLivingBase>(), "jumpTicks", "I")
+
+            +end
         })
     }
 }
