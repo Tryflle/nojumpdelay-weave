@@ -20,6 +20,7 @@ class Main: ModInitializer {
     }
 
     companion object {
+        @JvmStatic
         var njdToggled = false
     }
 }

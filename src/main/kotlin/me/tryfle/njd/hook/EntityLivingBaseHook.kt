@@ -1,7 +1,6 @@
 package me.tryfle.njd.hook
 
 import me.tryfle.njd.Main
-import net.minecraft.entity.EntityLivingBase
 import net.weavemc.api.Hook
 import net.weavemc.internals.asm
 import net.weavemc.internals.internalNameOf
@@ -12,11 +11,12 @@ class EntityLivingBaseHook : Hook("net/minecraft/entity/EntityLivingBase") {
     override fun transform(node: ClassNode, cfg: AssemblerConfig) {
         node.methods.find { it.name == "onLivingUpdate" }?.instructions?.insert(asm {
             val end = LabelNode()
-            getstatic(internalNameOf<Main>(), "njdToggled", "Z")
+            invokestatic(internalNameOf<Main>(), "getNjdToggled", "()Z")
             ifeq(end)
 
+            aload(0)
             iconst_0
-            putfield(internalNameOf<EntityLivingBase>(), "jumpTicks", "I")
+            putfield("net/minecraft/entity/EntityLivingBase", "jumpTicks", "I")
 
             +end
         })

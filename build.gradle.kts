@@ -1,12 +1,12 @@
 plugins {
     kotlin("jvm") version "1.9.23"
-    id("net.weavemc.gradle") version "1.0.0-PRE"
+    id("net.weavemc.gradle") version "1.0.0-PRE2"
 }
 
 group = "me.tryfle"
-version = "1.0"
+version = "2.0"
 
-minecraft {
+weave {
     configure {
         name = "njd"
         modId = "njd"
@@ -23,8 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation("net.weavemc.api:common:1.0.0-PRE")
-    implementation("net.weavemc:internals:1.0.0-PRE")
+    implementation("net.weavemc.api:common:1.0.0-PRE2")
+    implementation("net.weavemc:internals:1.0.0-PRE2")
 }
 
 kotlin {
